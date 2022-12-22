@@ -35,9 +35,10 @@ namespace Guess_the_number
     {
         static void Main(string[] args)
         {
-            
+            var game = new GuessNumber(guessingPlayer: GuessingPlayer.Human);
+            game.Start();
 
-
+            Console.ReadLine();
         }
     }
 }
