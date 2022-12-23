@@ -35,10 +35,32 @@ namespace Guess_the_number
     {
         static void Main(string[] args)
         {
-            var game = new GuessNumber(guessingPlayer: GuessingPlayer.Human);
-            game.Start();
+            bool flag = true;
+            while (flag)
+            {
+                Console.WriteLine("Кто будет угадывать? Если человек нажмите 'h', если компьютер - 'm'.");
+                string guessThePlayer = Console.ReadLine();
+                if (guessThePlayer == "h")
+                {
+                    var game = new GuessNumber(guessingPlayer: GuessingPlayer.Human);
+                    game.Start();
+                }
 
-            Console.ReadLine();
+                if (guessThePlayer == "m")
+                {
+                    var game = new GuessNumber(guessingPlayer: GuessingPlayer.Machine);
+                    game.Start();
+                }
+                Console.WriteLine("***********************");
+                Console.WriteLine("Сыграть еще раз? Если ДА нажми 1, НЕТ - 2.");
+                int theGame = int.Parse(Console.ReadLine());
+                if (theGame == 2)
+                {
+                    Console.WriteLine("Спасибо за игру!");
+                    break;
+                }
+            }
+
         }
     }
 }
